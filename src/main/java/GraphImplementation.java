@@ -1,50 +1,57 @@
 package main.java;
-
-import org.w3c.dom.Node;
-
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+
 
 public class GraphImplementation {
 
-    List<List<Node>> adj_list = new ArrayList<>();
-    public graph BFTraversal(originVertex)
+    //List<List<Node>> adj_list = new ArrayList<>();
+    public List BFTraversal(Object originVertex)
     {
-            //traversalOrder = a new queue for the resulting traversal order
-            //vertexQueue = a new queue to hold vertices as they are visited
-            // Mark originVertex as visited
-            // traversalOrder.enqueue(originVertex)
-            // vertexQueue.enqueue(originVertex)
+        Queue<Object> traversalOrder = new LinkedList<> ();
+        Queue<Object> vertexQueue = new LinkedList<>();
+        // originVertex=true; (somehow mark origin vertex as visited)
+        traversalOrder.add(originVertex);
+        //traversalOrder.enqueue(originVertex);
+
+        vertexQueue.add(originVertex);
+
         while (!vertexQueue.isEmpty())
         {
-            frontVertex = vertexQueue.dequeue()
-        while (frontVertex has a neighbor) {
-            nextNeighbor = next neighbor of frontVertex if (nextNeighbor is not visited)
+            Object frontVertex = vertexQueue.remove(); //vertexQueue.dequeue();
+        while ( frontVertex. )//frontVertex has a neighbor
+        {
+            nextNeighbor = next neighbor of frontVertex
+        if (nextNeighbor==false)
             {
             } }
         }
-        Mark nextNeighbor as visited
-        traversalOrder.enqueue(nextNeighbor)
-        vertexQueue.enqueue(nextNeighbor)
+        boolean nextNeighbor=true;
+        traversalOrder.add(nextNeighbor);
+        vertexQueue.add(nextNeighbor);
         return traversalOrder;
     }
 
     public void DFTraversal()
     {
-        traversalOrder = a new queue for the resulting traversal order
-        vertexStack = a new stack to hold vertices as they are visited
-        Mark originVertex as visited traversalOrder.enqueue(originVertex)
-        vertexStack.push(originVertex)
+        Queue<Object> traversalOrder = new LinkedList<> (); //a new queue for the resulting traversal order
+        Stack<Object> vertexStack = new LinkedList<> (); //a new stack to hold vertices as they are visited
+        boolean originVertex=true;
+        traversalOrder.enqueue(originVertex);
+        vertexStack.push(originVertex);
         while (!vertexStack.isEmpty()) {
-            topVertex = vertexStack.peek()
+            topVertex = vertexStack.peek();
             if (topVertex has an unvisited neighbor) {
                 nextNeighbor = next unvisited neighbor of topVertex
-                Mark nextNeighbor as visited traversalOrder.enqueue(nextNeighbor)
-                vertexStack.push(nextNeighbor)
+                boolean nextNeighbor=true; //Marks nextNeighbor as visited
+                traversalOrder.enqueue(nextNeighbor);
+                vertexStack.push(nextNeighbor);
             }
-else // All neighbors are visited vertexStack.pop()
+            else // All neighbors are visited
+                vertexStack.pop();
         }
-        return traversalOrder
+        return traversalOrder;
     }
 
 }
