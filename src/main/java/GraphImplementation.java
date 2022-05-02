@@ -6,6 +6,15 @@ import java.util.Queue;
 
 public class GraphImplementation {
 
+    Queue<Object> graph = new LinkedList<> ();
+
+    public boolean isEmpty()
+    {
+        if (graph.size()==0)
+            return true;
+        return false;
+    }
+
     //List<List<Node>> adj_list = new ArrayList<>();
     public List BFTraversal(Object originVertex)
     {
@@ -33,6 +42,9 @@ public class GraphImplementation {
         return traversalOrder;
     }
 
+    /**
+     * method implementing depth first traversal of graph
+     */
     public void DFTraversal()
     {
         Queue<Object> traversalOrder = new LinkedList<> (); //a new queue for the resulting traversal order
