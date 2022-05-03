@@ -1,5 +1,4 @@
 package main.java;
-package GraphPackage;
 
 public interface GraphInterface<T>
 {
