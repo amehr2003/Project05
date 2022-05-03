@@ -39,8 +39,8 @@ public class GraphImplementation {
     
     public void addEdge(Object v, Object u)
     {
-        graph.get(v).add(u);
-        graph.get(u).add(v);
+        graph.get((Integer) v).add(u);
+        graph.get((Integer) u).add(v);
     }
 
     public List BFTraversal(Object originVertex, int o)
@@ -55,27 +55,13 @@ public class GraphImplementation {
 
         vertexQueue.add(originVertex);
 
-//        while (!vertexQueue.isEmpty())
-//        {
-//            Object frontVertex = vertexQueue.remove(); //vertexQueue.dequeue();
-
         while (queue.size() != 0)
         {
             // Dequeue a vertex from queue and print it
             o = queue.poll();
             System.out.print(o+" ");
-        while (frontVertex. )//frontVertex has a neighbor
-        {
-            nextNeighbor = next neighbor of frontVertex
-        if (nextNeighbor==false)
-            {
-            } }
-        }
-        boolean nextNeighbor=true;
-        traversalOrder.add(nextNeighbor);
-        vertexQueue.add(nextNeighbor);
-        return traversalOrder;
     }
+        
 
     /**
      * method implementing depth first traversal of graph
