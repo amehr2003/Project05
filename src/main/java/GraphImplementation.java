@@ -1,26 +1,51 @@
 package main.java;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 
 public class GraphImplementation {
+/**
+ this is old code
 
-    private LinkedList<Integer> adj_list[];
+ private LinkedList<Integer> adj_list[];
 
+    Queue<Object> traversalOrder = new LinkedList<> ();
+    Queue<Object> vertexQueue = new LinkedList<>();
+
+    /*
     GraphImplementation(int v)
     {
         int V = v;
-        Queue<Object> traversalOrder = new LinkedList<> ();
-        Queue<Object> vertexQueue = new LinkedList<>();
         adj_list = new LinkedList[v];
         for (int i=0; i<v; ++i)
             adj_list[i] = new LinkedList();
     }
+ **/
+
+    //new code
+    Queue<Object> traversalOrder = new LinkedList<> ();
+    Queue<Object> vertexQueue = new LinkedList<>();
+    ArrayList<ArrayList<Object>> graph = new ArrayList<>();
+    int v;
+
+    GraphImplementation(int numNodes)
+    {
+        v=numNodes;
+        for (int i=0; i<v; ++i)
+            graph.add(new ArrayList<Object>());
+    }
+    
+    public void addEdge(Object v, Object u)
+    {
+        graph.get(v).add(u);
+        graph.get(u).add(v);
+    }
 
     public List BFTraversal(Object originVertex, int o)
     {
-        //boolean visited[] = new boolean[V];
+        boolean visited[] = new boolean[v];
 
         originVertex=true; //(somehow mark origin vertex as visited)
         LinkedList<Integer> queue = new LinkedList<Integer>()
