@@ -6,30 +6,40 @@ import java.util.Queue;
 
 public class GraphImplementation {
 
-    Queue<Object> graph = new LinkedList<> ();
+    private LinkedList<Integer> adj_list[];
 
-    public boolean isEmpty()
+    GraphImplementation(int v)
     {
-        if (graph.size()==0)
-            return true;
-        return false;
-    }
-
-    //List<List<Node>> adj_list = new ArrayList<>();
-    public List BFTraversal(Object originVertex)
-    {
+        int V = v;
         Queue<Object> traversalOrder = new LinkedList<> ();
         Queue<Object> vertexQueue = new LinkedList<>();
-        // originVertex=true; (somehow mark origin vertex as visited)
+        adj_list = new LinkedList[v];
+        for (int i=0; i<v; ++i)
+            adj_list[i] = new LinkedList();
+    }
+
+    public List BFTraversal(Object originVertex, int o)
+    {
+        //boolean visited[] = new boolean[V];
+
+        originVertex=true; //(somehow mark origin vertex as visited)
+        LinkedList<Integer> queue = new LinkedList<Integer>()
+        queue.add(o);
         traversalOrder.add(originVertex);
         //traversalOrder.enqueue(originVertex);
 
         vertexQueue.add(originVertex);
 
-        while (!vertexQueue.isEmpty())
+//        while (!vertexQueue.isEmpty())
+//        {
+//            Object frontVertex = vertexQueue.remove(); //vertexQueue.dequeue();
+
+        while (queue.size() != 0)
         {
-            Object frontVertex = vertexQueue.remove(); //vertexQueue.dequeue();
-        while ( frontVertex. )//frontVertex has a neighbor
+            // Dequeue a vertex from queue and print it
+            o = queue.poll();
+            System.out.print(o+" ");
+        while (frontVertex. )//frontVertex has a neighbor
         {
             nextNeighbor = next neighbor of frontVertex
         if (nextNeighbor==false)
