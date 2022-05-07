@@ -39,8 +39,8 @@ public class GraphImplementation {
     
     public void addEdge(Object v, Object u)
     {
-        graph.get(v).add(u);
-        graph.get(u).add(v);
+        graph.get((Integer) v).add(u);
+        graph.get((Integer) u).add(v);
     }
 
     public List BFTraversal(Object originVertex, int o)
@@ -55,50 +55,46 @@ public class GraphImplementation {
 
         vertexQueue.add(originVertex);
 
-//        while (!vertexQueue.isEmpty())
-//        {
-//            Object frontVertex = vertexQueue.remove(); //vertexQueue.dequeue();
-
         while (queue.size() != 0)
         {
             // Dequeue a vertex from queue and print it
             o = queue.poll();
             System.out.print(o+" ");
-        while (frontVertex. )//frontVertex has a neighbor
-        {
-            nextNeighbor = next neighbor of frontVertex
-        if (nextNeighbor==false)
-            {
-            } }
-        }
-        boolean nextNeighbor=true;
-        traversalOrder.add(nextNeighbor);
-        vertexQueue.add(nextNeighbor);
-        return traversalOrder;
     }
+        
 
     /**
-     * method implementing depth first traversal of graph
-     */
-    public void DFTraversal()
-    {
-        Queue<Object> traversalOrder = new LinkedList<> (); //a new queue for the resulting traversal order
-        Stack<Object> vertexStack = new LinkedList<> (); //a new stack to hold vertices as they are visited
-        boolean originVertex=true;
-        traversalOrder.enqueue(originVertex);
-        vertexStack.push(originVertex);
-        while (!vertexStack.isEmpty()) {
-            topVertex = vertexStack.peek();
-            if (topVertex has an unvisited neighbor) {
-                nextNeighbor = next unvisited neighbor of topVertex
-                boolean nextNeighbor=true; //Marks nextNeighbor as visited
-                traversalOrder.enqueue(nextNeighbor);
-                vertexStack.push(nextNeighbor);
-            }
-            else // All neighbors are visited
-                vertexStack.pop();
-        }
-        return traversalOrder;
-    }
+         * method implementing depth first traversal of graph
+         */
+        class DFT {
+            int numvertices;
+            private LinkedList<Integer> adj_list[];
+            int node;
 
+            void addEdge(int v, int w) {
+                adj_list[v].add(w); // Add w to v's list.
+            }
+
+            void DFSUtil(int numvertices, boolean visited[]) {
+                // Mark the current node as visited and print result
+                if (visited[v] = true;) {
+                    System.out.println(node);
+                }
+                System.out.print(v + " "); //spacing for formatting purposes
+                Iterator<Integer> i = adj_list[v].listIterator();
+                while (i.hasNext()) {
+                    int next = i.next();
+                    if (!visited[next])
+                        DFSUtil(next, visited); //recursive function to get vertices adjacent to the vertex
+                }
+            }
+            void DFS()
+            {
+                boolean visited[] = new boolean[v];
+                
+                for (int i = 0; i < v; ++i)
+                    if (visited[i] == false)
+                        DFSUtil(i, visited);
+            }
+            }
 }
