@@ -1,8 +1,5 @@
 package main.java;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 
 public class GraphImplementation {
@@ -48,7 +45,7 @@ public class GraphImplementation {
         boolean visited[] = new boolean[v];
 
         originVertex=true; //(somehow mark origin vertex as visited)
-        LinkedList<Integer> queue = new LinkedList<Integer>()
+        LinkedList<Integer> queue = new LinkedList<Integer>();
         queue.add(o);
         traversalOrder.add(originVertex);
         //traversalOrder.enqueue(originVertex);
@@ -75,9 +72,9 @@ public class GraphImplementation {
                 adj_list[v].add(w); // Add w to v's list.
             }
 
-            void DFSUtil(int numvertices, boolean visited[]) {
+            void DFSUtil(int numvertices, boolean[] visited) {
                 // Mark the current node as visited and print result
-                if (visited[v] = true;) {
+                if (visited[v] == true) {
                     System.out.println(node);
                 }
                 System.out.print(v + " "); //spacing for formatting purposes
@@ -90,11 +87,13 @@ public class GraphImplementation {
             }
             void DFS()
             {
-                boolean visited[] = new boolean[v];
+                boolean[] visited = new boolean[v];
                 
                 for (int i = 0; i < v; ++i)
-                    if (visited[i] == false)
+                    if (!visited[i])
                         DFSUtil(i, visited);
             }
             }
+            return graph;
+}
 }
