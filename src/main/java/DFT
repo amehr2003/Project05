@@ -1,0 +1,40 @@
+package main.java;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+/**
+ * method implementing depth first traversal of graph
+ */
+class DFT {
+    int numvertices;
+    private LinkedList<Integer> adj_list[];
+    int node;
+
+    void addEdge(int v, int w) {
+        adj_list[v].add(w); // Add w to v's list.
+    }
+
+    void DFSUtil(int numvertices, boolean visited[]) {
+        // Mark the current node as visited and print result
+        if (visited[numvertices] = true){
+            System.out.println(node);
+        }
+        System.out.print(numvertices + " "); //spacing for formatting purposes
+        Iterator<Integer> i = adj_list[numvertices].listIterator();
+        while (i.hasNext()) {
+            int next = i.next();
+            if (!visited[next])
+                DFSUtil(next, visited); //recursive function to get vertices adjacent to the vertex
+        }
+    }
+
+    void DFS() {
+        boolean visited[] = new boolean[numvertices];
+
+        for (int i = 0; i < numvertices; ++i)
+            if (visited[i] == false)
+                DFSUtil(i, visited);
+    }
+}
+
