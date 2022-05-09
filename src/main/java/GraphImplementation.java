@@ -3,62 +3,56 @@ import java.util.*;
 
 
 public class GraphImplementation {
-/**
- this is old code
+// This class represents a directed graph using adjacency list
+// representation
+    class Graph {
+        private int numvertices; // No. of vertices
+        private LinkedList<Integer> adj_list[]; //Adjacency Lists
 
- private LinkedList<Integer> adj_list[];
+        // Constructor
+        Graph(int v) {
+            numvertices = v;
+            adj_list = new LinkedList[v];
+            for (int i = 0; i < v; ++i)
+                adj_list[i] = new LinkedList();
+        }
 
-    Queue<Object> traversalOrder = new LinkedList<> ();
-    Queue<Object> vertexQueue = new LinkedList<>();
+        // Function to add an edge into the graph
+        void addEdge(int v, int w) {
+            adj_list[v].add(w);
+        }
 
-    /*
-    GraphImplementation(int v)
-    {
-        int V = v;
-        adj_list = new LinkedList[v];
-        for (int i=0; i<v; ++i)
-            adj_list[i] = new LinkedList();
-    }
- **/
+        // prints BFS traversal from a given source s
+        void BFS(int s) {
+            // Mark all the vertices as not visited(By default
+            // set as false)
+            boolean visited[] = new boolean[numvertices];
 
-    //new code
-    Queue<Object> traversalOrder = new LinkedList<> ();
-    Queue<Object> vertexQueue = new LinkedList<>();
-    ArrayList<ArrayList<Object>> graph = new ArrayList<>();
-    int v;
+            // Create a queue for BFS
+            LinkedList<Integer> queue = new LinkedList<Integer>();
 
-    GraphImplementation(int numNodes)
-    {
-        v=numNodes;
-        for (int i=0; i<v; ++i)
-            graph.add(new ArrayList<Object>());
-    }
-    
-    public void addEdge(Object v, Object u)
-    {
-        graph.get((Integer) v).add(u);
-        graph.get((Integer) u).add(v);
-    }
+            // Mark the current node as visited and enqueue it
+            visited[s] = true;
+            queue.add(s);
 
-    public List BFTraversal(Object originVertex, int o)
-    {
-        boolean visited[] = new boolean[v];
+            while (queue.size() != 0) {
+                // Dequeue a vertex from queue and print it
+                s = queue.poll();
+                System.out.print(s + " ");
 
-        originVertex=true; //(somehow mark origin vertex as visited)
-        LinkedList<Integer> queue = new LinkedList<Integer>();
-        queue.add(o);
-        traversalOrder.add(originVertex);
-        //traversalOrder.enqueue(originVertex);
-
-        vertexQueue.add(originVertex);
-
-        while (queue.size() != 0)
-        {
-            // Dequeue a vertex from queue and print it
-            o = queue.poll();
-            System.out.print(o+" ");
-    }
-        
+                // Get all adjacent vertices of the dequeued vertex s
+                // If a adjacent has not been visited, then mark it
+                // visited and enqueue it
+                Iterator<Integer> i = adj_list[s].listIterator();
+                while (i.hasNext()) {
+                    int n = i.next();
+                    if (!visited[n]) {
+                        visited[n] = true;
+                        queue.add(n);
+                    }
+                }
+            }
+        }
 
     /**
          * method implementing depth first traversal of graph
