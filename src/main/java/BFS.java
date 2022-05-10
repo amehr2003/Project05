@@ -3,7 +3,7 @@ package main.java;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-class BFS {
+public class BFS {
     private int numvertices;
     private LinkedList<Integer> adj_list[]; //Adjacency Lists
 

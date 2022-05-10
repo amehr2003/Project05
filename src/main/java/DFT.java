@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * method implementing depth first traversal of graph
  */
-class DFT {
+public class DFT {
     int numvertices;
     private LinkedList<Integer> adj_list[];
     int node;
