@@ -1,4 +1,7 @@
 import main.java.GraphImplementation;
+import java.util.Stack;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Driver
 {
@@ -21,6 +24,19 @@ public class Driver
         driverGraph.addEdge(5,6);
         driverGraph.addEdge(7,6);
         driverGraph.addEdge(6,7);
-        
+
+        LinkedList<Integer> driverQueue = new LinkedList<Integer>();
+        while (!driverQueue.isEmpty()) {
+            Integer piece = driverQueue.poll();
+            System.out.print(piece + " ");
+        }
+
+        Stack<Integer> driverStack = new Stack<Integer>;
+
+        System.out.println("DFS Order: ");
+        while (!driverStack.isEmpty()) {
+            Integer piece = driverStack.pop();
+            System.out.print(piece + " ");
+        }
     }
 }
